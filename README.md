@@ -34,9 +34,50 @@ python3 -m http.server 8080
 
 `http://localhost:8080` を開く。
 
-## デプロイ
+## ドメインとサイト公開（ここが分かりにくいところ）
 
-Cloudflare Pages / Netlify / Vercel などにこのフォルダをそのままデプロイ（ビルド不要）。公開後、GoogleビジネスプロフィールのウェブサイトにURLを登録し、Search Console でプロパティ追加。
+### 先に知っておくこと
+
+- **ドメイン（例: `flourb.jp`）を取る＝レンタル**です。年払いが一般的で、**クレジットカード等であなた本人が登録・支払い**します。
+- こちらから **あなたの代わりにドメイン契約や決済を実行することはできません**（本人確認と支払いが必要なため）。
+- ただし **独自ドメインなしでも、無料のURLで今日から公開**できます（下の A）。あとからドメインを足す流れがいちばん失敗しにくいです。
+
+### A. まず無料のURLだけで公開する（おすすめ・独自ドメインは後回し）
+
+1. 無料で [Cloudflare](https://www.cloudflare.com/) にアカウントを作る。
+2. ダッシュボードの **Workers & Pages** → **Pages** → **Create**。
+3. **Upload assets** を選び、このプロジェクトのフォルダ（`index.html` がある階層）を ZIP にしてアップロードするか、**GitHub にリポジトリを作って連携**する。
+4. プロジェクト名を例: `flourb-nagoya` にすると、公開URLは **`https://flourb-nagoya.pages.dev`** のようになります（空いている名前にする）。
+5. ブラウザで表示を確認できたら、**GBP（Googleビジネス）のウェブサイト欄にこのURL**を入れてよいです。
+
+このとき、`index.html` などの **`YOUR-DOMAIN.example` をすべて `https://（実際のpages.devのURL）` に置換**してください（canonical・OG・JSON-LD・`robots.txt`・`sitemap.xml` も同じURLに統一）。
+
+### B. 独自ドメインを取る（例: `flourb.jp` や `flourb.com`）
+
+1. **レジストラ**（ドメイン販売店）で空き状況を検索して購入する。例:
+   - [ムームードメイン](https://muumuu-domain.com/)（国内でよく使われる）
+   - [お名前.com](https://www.onamae.com/)
+   - [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/)（原価に近い料金のことが多い。DNSも同じ画面で管理しやすい）
+2. 希望名が埋まっていたら、`flourb-salon.jp` のように別案を試す。
+3. **`.jp` は取得条件や審査の説明がレジストラにあります**（個人・法人どちらで取るかなど）。画面の指示に従ってください。
+4. 支払いまで完了すると、そのドメインの **DNS設定**ができるようになります。
+
+### C. 独自ドメインを Cloudflare Pages にくっつける（A のあと）
+
+1. Cloudflare Pages の該当プロジェクト → **Custom domains** → ドメインを追加。
+2. 表示される **DNSの指示**（CNAME など）を、ドメインを買った場所のDNS画面にそのまま入れる。  
+   - ドメインも Cloudflare で買っている場合は、画面の案内が一番スムーズです。
+3. SSLが有効になったら（数分〜）、`https://あなたのドメイン/` で開けることを確認。
+4. リポジトリ内の **`YOUR-DOMAIN.example` をその本番URLに一括置換**（canonical・OG・JSON-LD・`robots.txt`・`sitemap.xml`）。
+
+### 公開後にやること（SEO用）
+
+- Googleビジネスプロフィールの **ウェブサイト** に本番URLを登録。
+- [Google Search Console](https://search.google.com/search-console) にそのURLを追加し、必要ならサイトマップ `https://本番URL/sitemap.xml` を登録。
+
+## デプロイ（要約）
+
+このフォルダは **ビルド不要の静的サイト**です。Cloudflare Pages / Netlify / Vercel のどれでも「フォルダごと」デプロイ可能。手順の詳細は上の **A〜C** を参照。
 
 ## 同梱
 
