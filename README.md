@@ -1,34 +1,43 @@
-# Flourb（フルーブ）公式サイト（静的1ページ）
+# Flourb（フルーブ）ランディングページ
 
-名古屋・伏見のハーブピーリング専門サロン向けのシンプルなランディングページです。
+名古屋・伏見のハーブピーリング専門サロン向け。**教育コンテンツ（ハーブピーリングとは・対象・流れ）** → **LINE / Square 予約** の導線です。ミニモへのリンクはありません。
 
 ## 公開前に必ず直す箇所
 
-1. **`index.html`**
-   - `YOUR-DOMAIN.example` → 実際のドメイン（`https://...`）
-   - `canonical` / `og:url` / JSON-LD の `url` / `@id`
-   - `YOUR_LINE_URL` → LINE公式の「友だち追加」URL
-   - 料金表記（税込・税別など店舗ルールに合わせる）
-   - `og-image.jpg` を用意するか、`image` を削除／差し替え
-2. **電話番号を掲載する場合**  
-   JSON-LD に `"telephone": "+81-XX-XXXX-XXXX"` を追加し、フッターや問い合わせ欄にも記載
+### URLの置換（`index.html` 内の複数箇所）
+
+| プレースホルダー | 差し替え先の例 |
+|------------------|----------------|
+| `YOUR-DOMAIN.example` | 取得したドメイン（`https://...`）— canonical / og / JSON-LD / robots / sitemap も同じ |
+| `YOUR_LINE_URL` | LINE公式アカウント管理画面の **友だち追加URL** |
+| `YOUR_SQUARE_BOOKING_URL` | Square管理画面で発行する **オンライン予約ページのURL** |
+
+Squareの予約ページは [Square：ネット予約・予約ページ](https://squareup.com/jp/ja/appointments/features/online-booking-website) の案内どおり、ダッシュボードから発行します（プラン・手数料は公式を確認）。
+
+### その他
+
+- `og-image.jpg` を置くか、JSON-LD の `image` を差し替え／削除
+- 電話を出す場合は JSON-LD に `"telephone": "+81-..."` を追加し、必要なら本文にも記載
+
+## 導線の考え方（調査メモ）
+
+- **LINE**: 相談・信頼形成に向く。リッチメニューに「予約（Squareへ）」「アクセス」「公式サイト」を並べる構成が美容サロンでは一般的です。
+- **Square**: 24時間・カレンダー選びのわかりやすさ。LPからは **「ネット予約はこちら」** で直リンクするのがシンプルです。
+- 両方を並べる場合、**LINE＝相談・初回層 / Square＝日程確定したい層** に分けると運用しやすいです（どちらを主ボタンにするかは店の運用に合わせて `index.html` のボタン順を入れ替えてOKです）。
 
 ## ローカルで確認
 
 ```bash
-cd /Users/kawabetatsuya/Projects/flourb-nagoya-salon-site
+cd ~/Projects/flourb-nagoya-salon-site
 python3 -m http.server 8080
 ```
 
-ブラウザで `http://localhost:8080` を開く。
+`http://localhost:8080` を開く。
 
-## 無料でホスティングする例
+## デプロイ
 
-- **Cloudflare Pages / Netlify / Vercel**: このフォルダをそのままデプロイ（ビルド不要）
-- **GitHub Pages**: リポジトリのルートに `index.html` がある状態で公開
+Cloudflare Pages / Netlify / Vercel などにこのフォルダをそのままデプロイ（ビルド不要）。公開後、GoogleビジネスプロフィールのウェブサイトにURLを登録し、Search Console でプロパティ追加。
 
-公開後、**Googleビジネスプロフィールの「ウェブサイト」**にそのURLを登録し、**Google Search Console**でプロパティ追加すると検索側の把握が早まります。
+## 同梱
 
-## 同梱ファイル
-
-- `marketing/gbp-copy.md` … GBP貼り付け用文案・Q&A・レビュー依頼文
+- `marketing/gbp-copy.md` … GBP貼り付け用文案
