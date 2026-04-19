@@ -9,7 +9,7 @@
 | プレースホルダー | 差し替え先の例 |
 |------------------|----------------|
 | `YOUR-DOMAIN.example` | 取得したドメイン（`https://...`）— canonical / og / JSON-LD / robots / sitemap も同じ |
-| `YOUR_LINE_URL` | LINE公式アカウント管理画面の **友だち追加URL** |
+| LINE友だち追加 | **設定済み**（`https://lin.ee/MvZoH1V`） |
 | Square予約URL | **設定済み**（`index.html` 内の Square リンク）。差し替える場合は Square ダッシュボードの予約ページURLを使用 |
 
 Squareの予約ページは [Square：ネット予約・予約ページ](https://squareup.com/jp/ja/appointments/features/online-booking-website) の案内どおり、ダッシュボードから発行します（プラン・手数料は公式を確認）。
