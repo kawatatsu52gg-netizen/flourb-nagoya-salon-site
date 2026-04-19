@@ -8,7 +8,7 @@
 
 | プレースホルダー | 差し替え先の例 |
 |------------------|----------------|
-| `YOUR-DOMAIN.example` | 取得したドメイン（`https://...`）— canonical / og / JSON-LD / robots / sitemap も同じ |
+| 本番URL | **設定済み** `https://flourb.com`（canonical / OG / JSON-LD / robots / sitemap） |
 | LINE友だち追加 | **設定済み**（`https://lin.ee/MvZoH1V`） |
 | Square予約URL | **設定済み**（`index.html` 内の Square リンク）。差し替える場合は Square ダッシュボードの予約ページURLを使用 |
 
@@ -50,7 +50,7 @@ python3 -m http.server 8080
 4. プロジェクト名を例: `flourb-nagoya` にすると、公開URLは **`https://flourb-nagoya.pages.dev`** のようになります（空いている名前にする）。
 5. ブラウザで表示を確認できたら、**GBP（Googleビジネス）のウェブサイト欄にこのURL**を入れてよいです。
 
-このとき、`index.html` などの **`YOUR-DOMAIN.example` をすべて `https://（実際のpages.devのURL）` に置換**してください（canonical・OG・JSON-LD・`robots.txt`・`sitemap.xml` も同じURLに統一）。
+独自ドメインを使わず **pages.dev だけで試す**場合は、`index.html` などの `https://flourb.com` をその **一時URL** に差し替えてください。
 
 ### B. 独自ドメインを取る（例: `flourb.jp` や `flourb.com`）
 
@@ -68,7 +68,7 @@ python3 -m http.server 8080
 2. 表示される **DNSの指示**（CNAME など）を、ドメインを買った場所のDNS画面にそのまま入れる。  
    - ドメインも Cloudflare で買っている場合は、画面の案内が一番スムーズです。
 3. SSLが有効になったら（数分〜）、`https://あなたのドメイン/` で開けることを確認。
-4. リポジトリ内の **`YOUR-DOMAIN.example` をその本番URLに一括置換**（canonical・OG・JSON-LD・`robots.txt`・`sitemap.xml`）。
+4. リポジトリ内の本番URL（`https://flourb.com`）が DNS と一致しているか確認（canonical・OG・JSON-LD・`robots.txt`・`sitemap.xml`）。
 
 ### 公開後にやること（SEO用）
 
