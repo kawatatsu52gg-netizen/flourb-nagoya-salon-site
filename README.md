@@ -2,6 +2,17 @@
 
 名古屋・伏見のハーブピーリング専門サロン向け。**教育コンテンツ（ハーブピーリングとは・対象・流れ）** → **LINE / Square 予約** の導線です。ミニモへのリンクはありません。
 
+## Notion（Cursor MCP）
+
+このリポジトリの **`.cursor/mcp.json`** に、Notion 公式のリモート MCP（`https://mcp.notion.com/mcp`）を入れてあります。
+
+1. **Cursor を一度リロード**（ウィンドウの再読み込み）するか、プロジェクトを開き直す。
+2. **Cursor Settings → MCP** で `notion` が一覧に出ているか確認する。
+3. **初めて Notion 系のツールを使うとき**、ブラウザで **Notion の OAuth（ログイン・許可）** が求められたら、そのまま完了させる。
+4. 他のプロジェクトでも使いたい場合は、同じ JSON を **`~/.cursor/mcp.json`** にコピーする（グローバル設定）。
+
+公式の案内: [Connecting to Notion MCP](https://developers.notion.com/docs/get-started-with-mcp)
+
 ## 公開前に必ず直す箇所
 
 ### URLの置換（`index.html` 内の複数箇所）
