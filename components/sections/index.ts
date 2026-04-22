@@ -1,0 +1,10 @@
+export { Hero } from "./hero";
+export { Pain } from "./pain";
+export { Concept } from "./concept";
+export { Method } from "./method";
+export { Proof } from "./proof";
+export { Testimonials } from "./testimonials";
+export { Pricing } from "./pricing";
+export { Faq } from "./faq";
+export { Closing } from "./closing";
+export { Footer } from "./footer";
