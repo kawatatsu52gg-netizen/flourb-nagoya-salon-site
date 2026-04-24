@@ -1,5 +1,5 @@
 export const reservationLinks = {
-  line: "https://lin.ee/MvZoH1V",
+  line: "https://lin.ee/Pp8Ude0",
   square:
     "https://book.squareup.com/appointments/ep9ch3dwkrs9ng/location/LM4F7BHD9ZW0N/services?rwg_token=AFd1xnG4imKzT0AqD3lBmFZEgyDm0Ia-pHABuefw-wNH1lCffNNh0-ICoiZ7gXc9NJoK5bsLYEIbbxPOBUANL9FK8PZjVg4s6A%3D%3D",
   hotpepper: "https://beauty.hotpepper.jp/",
