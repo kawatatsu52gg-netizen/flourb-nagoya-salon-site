@@ -41,6 +41,56 @@ export function Pricing() {
           <Button size="lg" variant="secondary">LINEで相談する</Button>
         </Link>
       </div>
+      <section className="mt-20 rounded-3xl border border-rose-300/30 bg-rose-100/35 px-6 py-12 md:px-10 md:py-16">
+        <p className="text-xs tracking-[0.3em] text-gold-700">AI DIAGNOSIS</p>
+        <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.6] tracking-wide md:text-5xl">
+          あなたに必要なケアを、
+          <br />
+          AIが一緒に探します。
+        </h3>
+        <p className="mt-8 max-w-3xl text-base leading-[2] text-foreground/75 md:text-lg">
+          肌の状態、骨格の癖、ライフスタイル、そして「今いちばん変えたいこと」。10問の質問にお答えいただくと、ハーブピーリング・小顔矯正・ホームケアの中から、あなたにもっとも合う道筋をご提案します。
+        </p>
+
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div>
+            <p className="mb-3 text-sm tracking-widest text-gold-700">01</p>
+            <p className="mb-2 font-medium">約3分で完了</p>
+            <p className="text-sm leading-relaxed text-foreground/65">10問の質問に答えるだけ。所要時間は約3分です。</p>
+          </div>
+          <div>
+            <p className="mb-3 text-sm tracking-widest text-gold-700">02</p>
+            <p className="mb-2 font-medium">あなた専用の診断文</p>
+            <p className="text-sm leading-relaxed text-foreground/65">
+              AIがあなたの回答を読み解き、一人ひとり違う言葉で結果をお伝えします。
+            </p>
+          </div>
+          <div>
+            <p className="mb-3 text-sm tracking-widest text-gold-700">03</p>
+            <p className="mb-2 font-medium">最適な一歩をご提案</p>
+            <p className="text-sm leading-relaxed text-foreground/65">
+              施術・ホームケア、あなたに合う道筋を明確にします。
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+          <Link href="/diagnosis">
+            <Button size="lg" className="w-full sm:w-auto">
+              無料AI診断をはじめる
+            </Button>
+          </Link>
+          <Link href="#reserve">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+              先にカウンセリングを予約する
+            </Button>
+          </Link>
+        </div>
+
+        <p className="mt-6 text-xs text-foreground/55">
+          ※ 診断結果はあくまで目安です。最終的な施術内容はカウンセリングで決定します。
+        </p>
+      </section>
     </SectionShell>
   );
 }

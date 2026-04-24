@@ -90,6 +90,15 @@ python3 -m http.server 8080
 
 このフォルダは **ビルド不要の静的サイト**です。Cloudflare Pages / Netlify / Vercel のどれでも「フォルダごと」デプロイ可能。手順の詳細は上の **A〜C** を参照。
 
+## AI診断機能の環境変数
+
+AI診断（`/diagnosis`）でClaude APIを使うため、以下の環境変数が必要です。
+
+- `ANTHROPIC_API_KEY`
+
+ローカルでは `.env.local` に設定してください。  
+Cloudflare Pages にデプロイする際は、**Production / Preview の両方**で同名の環境変数を設定してください。
+
 ## 同梱
 
 - `marketing/gbp-copy.md` … GBP貼り付け用文案
