@@ -148,7 +148,7 @@ export const pricingPlans = [
   {
     title: "ハーブピーリング",
     price: "¥13,500",
-    description: "75分｜表皮から真皮層の深部まで届く、肌細胞アプローチ",
+    description: "60分｜表皮から真皮層の深部まで届く、肌細胞アプローチ",
     badge: ""
   }
 ];

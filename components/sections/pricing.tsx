@@ -33,17 +33,7 @@ export function Pricing() {
           );
         })}
       </div>
-      <div className="mt-8 rounded-2xl border border-rose-300/50 bg-white p-6">
-        <h3 className="font-serif text-xl">回数券プラン（5回コース）</h3>
-        {/* 回数券の適用対象（小顔単体/コンビ）は現状表記を曖昧化。運用確定時に達也さんへ最終確認。 */}
-        <p className="mt-2 whitespace-pre-line text-sm text-foreground/80">
-          5回コース ¥45,000（1回あたり¥9,000）{"\n"}
-          細胞の再生サイクルに合わせた間隔で通うことを前提に設計。{"\n"}
-          短期的な割引目的ではなく、好循環の定着を無理なく続けるための仕組みです。
-        </p>
-        <p className="mt-3 text-sm text-foreground/65">初回限定カウンセリング無料（運用確定後に最終表記更新）</p>
-      </div>
-      <div className="mt-8 flex flex-wrap gap-3">
+      <div className="mt-12 flex flex-wrap gap-3">
         <Link href={reservationLinks.square} target="_blank" rel="noopener noreferrer">
           <Button size="lg">初回限定カウンセリングを予約する</Button>
         </Link>
