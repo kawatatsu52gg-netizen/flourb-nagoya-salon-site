@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 import { questions } from "@/app/diagnosis/lib/questions";
 import { calculateType } from "@/app/diagnosis/lib/scoring";
 
+export const runtime = 'edge';
+
 const client = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY
 });
