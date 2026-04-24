@@ -7,7 +7,8 @@ export const reservationLinks = {
 } as const;
 
 export const heroCopy = {
-  title: "肌と輪郭から、本質のわたしへ。",
+  /** メイン見出しは2行固定（改行制御） */
+  titleLines: ["肌と輪郭から、", "本質のわたしへ。"] as const,
   subtitle:
     "名古屋都心で働くキャリア女性へ。『お疲れですか？』と聞かれる肌を卒業し、構造美を土台にした印象設計へ。",
   primaryCta: "初回限定カウンセリングを予約する",
@@ -31,24 +32,46 @@ export const conceptCopy = {
   ]
 };
 
-export const methodSteps = [
+/** Method見出し案: A採用（ふたつの柱が世界観と一致）。B/Cはコメントで併記。 */
+// 案B: 「選べるアプローチ、続く美しさ。」
+// 案C: 「土台を整え、肌を変え、状態を保つ。」
+export const methodSection = {
+  heading: "体と肌、ふたつの柱から。",
+  lead: [
+    "小顔矯正とハーブピーリング。独立したふたつのアプローチで、",
+    "身体の土台と肌の細胞に同時に働きかけます。",
+    "単体でも、組み合わせても。あなたの目的に合わせて選べる設計です。"
+  ] as const
+} as const;
+
+export type MethodStepVariant = "pillar" | "continuity";
+
+export const methodSteps: ReadonlyArray<{
+  title: string;
+  description: string;
+  image: string;
+  variant: MethodStepVariant;
+}> = [
   {
     title: "整える｜小顔矯正",
     description:
-      "骨格・筋膜・神経系へ順番にアプローチ。顔の広がりを引き起こす過緊張に、解剖学ベースで働きかけます。",
-    image: "/placeholders/method-step-1.jpg"
+      "骨格・血流・筋肉の滞り。\n身体の内側にあるすべての要因に、順序立ててアプローチします。\n表面的な矯正ではなく、土台から輪郭を作り直す。\nそれがFlourbの小顔矯正です。",
+    image: "/placeholders/method-step-1.jpg",
+    variant: "pillar"
   },
   {
     title: "洗い流す｜ハーブピーリング",
     description:
-      "剥離を目的にせず、細胞の再生サイクルを正常化。日本人の肌特性に合わせた設計で、翌日メイクも可能です。",
-    image: "/placeholders/hero-visual.jpg"
+      "表皮から真皮層の深部まで届く、ハーブの力。\n肌細胞そのものに働きかけ、再生のサイクルを正常化します。\n一時的な変化で終わらない、本質的な肌質改善へ。",
+    image: "/placeholders/hero-visual.jpg",
+    variant: "pillar"
   },
   {
-    title: "満たす｜定着ケア",
+    title: "続ける｜好循環の定着",
     description:
-      "施術後のホームケアと生活習慣まで伴走。変化を『一時的な体験』から『続く状態』へ移行させます。",
-    image: "/placeholders/pain-mood.jpg"
+      "施術で整えた状態を、ご自宅での習慣に落とし込む。\n体の土台も、肌の細胞も、好循環が続く状態へ。\n『一時的な体験』を『続く変化』へと定着させる、Flourb独自のアフター設計です。",
+    image: "/placeholders/pain-mood.jpg",
+    variant: "continuity"
   }
 ];
 
@@ -111,21 +134,21 @@ export const testimonials = [
 
 export const pricingPlans = [
   {
-    title: "小顔矯正フェイシャル",
-    price: "¥10,000",
-    description: "45分。骨格・筋膜・神経へ3軸アプローチ",
+    title: "小顔矯正",
+    price: "¥12,000",
+    description: "60分｜骨格・血流・筋肉の滞りへ、土台から整えるアプローチ",
     badge: ""
   },
   {
-    title: "ハーブピーリング×小顔セット（推奨）",
-    price: "¥20,000",
-    description: "90分。土台から整え、細胞から変える統合メソッド",
+    title: "ハーブピーリング × 小顔セット",
+    price: "¥22,000",
+    description: "90分｜身体の土台と肌細胞に、同時に働きかける統合メニュー",
     badge: "最も選ばれています"
   },
   {
-    title: "プレミアム小顔矯正",
-    price: "¥13,000",
-    description: "60分。深部まで丁寧に整える上位メニュー",
+    title: "ハーブピーリング",
+    price: "¥13,500",
+    description: "75分｜表皮から真皮層の深部まで届く、肌細胞アプローチ",
     badge: ""
   }
 ];
@@ -167,9 +190,19 @@ export const closingCopy = {
 };
 
 export const profileCopy = {
-  name: "達也",
-  role: "Flourb 代表 / 柔道整復師",
-  bio: "柔道整復師としての臨床経験を土台に、HALII ACADEMYでの研鑽とハワイ解剖学研修で得た知見を統合。美容を『感覚』ではなく『再現可能な構造』として届けることを信条にしています。"
+  nameEn: "TATSUYA KAWABE",
+  nameJa: "川辺 達也",
+  role: "Flourb 名古屋 代表",
+  credential: "医療系国家資格保有",
+  bio: `東京・代官山に本店「LaTokyo」を構え、
+講師として小顔矯正・フェイスアプローチの指導実績多数。
+
+シンガポール・香港にもクライアントを持ち、
+常に予約が埋まり続ける状態が続いています。
+
+海外にて多数の解剖学研修を重ね、
+解剖学的根拠に踏み込んだ本質的な施術を、
+Flourbでお届けしています。`
 };
 
 export const businessInfo = {

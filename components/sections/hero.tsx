@@ -22,7 +22,13 @@ export function Hero() {
         <div className="max-w-3xl text-white">
           <AnimateIn>
             <p className="mb-4 text-sm tracking-[0.2em] text-gold-300">NAGOYA FUSHIMI / FLOURB</p>
-            <h1 className="font-serif text-4xl leading-tight md:text-6xl md:leading-tight">{heroCopy.title}</h1>
+            <h1 className="font-serif font-medium tracking-[0.06em] leading-[1.45] text-[clamp(1.75rem,5vw,2.75rem)] md:text-[clamp(2.25rem,4.5vw,3.75rem)]">
+              {heroCopy.titleLines.map((line, i) => (
+                <span key={line} className={`block w-fit max-w-full ${i === 1 ? "mt-1 md:mt-1.5" : ""}`}>
+                  {line}
+                </span>
+              ))}
+            </h1>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/90 md:text-lg">{heroCopy.subtitle}</p>
