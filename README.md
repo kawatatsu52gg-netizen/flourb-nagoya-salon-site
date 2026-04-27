@@ -1,5 +1,7 @@
 # Flourb（フルーブ）ランディングページ
 
+**本番URL:** [https://flourb.com](https://flourb.com)（Cloudflare Pages の `*.pages.dev` はプレビュー用。独自ドメイン接続後は常に `flourb.com` を正とする。）
+
 名古屋・伏見のハーブピーリング専門サロン向け。**教育コンテンツ（ハーブピーリングとは・対象・流れ）** → **LINE / Square 予約** の導線です。ミニモへのリンクはありません。
 
 ## Notion（Cursor MCP）

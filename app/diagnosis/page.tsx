@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "AI診断｜あなたに必要なケアを、AIが一緒に探します - Flourb名古屋",
   description:
     "10問の質問であなたに最適な美容アプローチを診断。ハーブピーリング・小顔矯正・ホームケアから、あなただけの道筋をご提案します。",
+  alternates: {
+    canonical: "https://flourb.com/diagnosis"
+  },
   openGraph: {
     title: "AI診断｜あなたに必要なケアを、AIが一緒に探します - Flourb名古屋",
     description:

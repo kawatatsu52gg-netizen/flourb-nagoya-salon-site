@@ -23,17 +23,26 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flourb.com"),
-  title: "Flourb名古屋｜肌と輪郭から本質のわたしへ",
+  title: "Flourb名古屋｜肌と輪郭から、本質のわたしへ",
   description:
-    "名古屋・伏見のハーブピーリング×小顔矯正サロンFlourb。構造美を土台に、肌と輪郭の未来を再設計します。",
+    "名古屋・伏見の小顔矯正＆ハーブピーリング。骨格×細胞の統合アプローチで、本質的な美しさへ。",
+  alternates: {
+    canonical: "https://flourb.com"
+  },
   openGraph: {
-    title: "Flourb名古屋｜肌と輪郭から本質のわたしへ",
+    title: "Flourb名古屋｜肌と輪郭から、本質のわたしへ",
     description:
-      "高価なケアを重ねても満たされなかった方へ。名古屋・伏見で、構造美を土台にした肌と顔の再設計を行います。",
+      "名古屋・伏見の小顔矯正＆ハーブピーリング。骨格×細胞の統合アプローチで、本質的な美しさへ。",
     url: "https://flourb.com",
     siteName: "Flourb Nagoya",
     locale: "ja_JP",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flourb名古屋｜肌と輪郭から、本質のわたしへ",
+    description:
+      "名古屋・伏見の小顔矯正＆ハーブピーリング。骨格×細胞の統合アプローチで、本質的な美しさへ。"
   }
 };
 

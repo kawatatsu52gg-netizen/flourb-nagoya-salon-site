@@ -14,6 +14,7 @@ import {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
+  "@id": "https://flourb.com/#business",
   name: "Flourb（フラーブ名古屋）",
   url: "https://flourb.com",
   image: "https://flourb.com/placeholders/hero-visual.jpg",
@@ -30,18 +31,18 @@ const localBusinessJsonLd = {
   makesOffer: [
     {
       "@type": "Service",
-      name: "小顔矯正フェイシャル",
-      offers: { "@type": "Offer", priceCurrency: "JPY", price: "10000" }
+      name: "小顔矯正",
+      offers: { "@type": "Offer", priceCurrency: "JPY", price: "12000" }
     },
     {
       "@type": "Service",
-      name: "プレミアム小顔矯正",
-      offers: { "@type": "Offer", priceCurrency: "JPY", price: "13000" }
+      name: "ハーブピーリング",
+      offers: { "@type": "Offer", priceCurrency: "JPY", price: "13500" }
     },
     {
       "@type": "Service",
-      name: "ハーブピーリング×小顔セット",
-      offers: { "@type": "Offer", priceCurrency: "JPY", price: "20000" }
+      name: "ハーブピーリング × 小顔セット",
+      offers: { "@type": "Offer", priceCurrency: "JPY", price: "22000" }
     }
   ]
 };
