@@ -117,7 +117,7 @@ export function DiagnosisFlow() {
           <Link href="/" className="text-sm text-foreground/65 underline underline-offset-4">
             LPへ戻る
           </Link>
-          <Link href="/#reserve" className="text-sm text-rose-700 underline underline-offset-4">
+          <Link href="/booking" className="text-sm text-rose-700 underline underline-offset-4">
             先に予約する
           </Link>
         </div>

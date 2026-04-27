@@ -17,7 +17,7 @@ export const resultTemplates = {
       price: "¥13,500",
       duration: "60分",
       description: "表皮から真皮層の深部まで届く、肌細胞アプローチ",
-      bookingHref: "/#reserve"
+      bookingHref: "/booking"
     }
   },
   kogao: {
@@ -30,7 +30,7 @@ export const resultTemplates = {
       price: "¥12,000",
       duration: "60分",
       description: "骨格・血流・筋肉の滞りへ、土台から整えるアプローチ",
-      bookingHref: "/#reserve"
+      bookingHref: "/booking"
     }
   },
   both: {
@@ -43,7 +43,7 @@ export const resultTemplates = {
       price: "¥22,000",
       duration: "90分",
       description: "身体の土台と肌細胞に、同時に働きかける統合メニュー",
-      bookingHref: "/#reserve"
+      bookingHref: "/booking"
     },
     isRecommended: true
   },
@@ -127,7 +127,7 @@ export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) 
           >
             <Button size="lg">{isExternalMenu ? "公式モールを見る" : "このメニューを予約する"}</Button>
           </Link>
-          <Link href="/#reserve">
+          <Link href="/booking">
             <Button size="lg" variant="secondary">
               まずカウンセリングで相談する
             </Button>

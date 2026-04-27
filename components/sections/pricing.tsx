@@ -41,7 +41,7 @@ export function Pricing() {
         })}
       </div>
       <div className="mt-12 flex flex-wrap gap-3">
-        <Link href={reservationLinks.square} target="_blank" rel="noopener noreferrer">
+        <Link href={reservationLinks.square}>
           <Button size="lg">初回限定カウンセリングを予約する</Button>
         </Link>
         <Link href={reservationLinks.line} target="_blank" rel="noopener noreferrer">
@@ -87,7 +87,7 @@ export function Pricing() {
               無料診断をはじめる
             </Button>
           </Link>
-          <Link href="#reserve">
+          <Link href="/booking">
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               先にカウンセリングを予約する
             </Button>

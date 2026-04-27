@@ -35,7 +35,7 @@ export function Hero() {
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={reservationLinks.square} target="_blank" rel="noopener noreferrer">
+              <Link href={reservationLinks.square}>
                 <Button size="lg">{heroCopy.primaryCta}</Button>
               </Link>
               <Link href="#concept">
@@ -52,7 +52,7 @@ export function Hero() {
           <Link href={reservationLinks.line} target="_blank" rel="noopener noreferrer">
             <Button variant="secondary" className="w-full">LINE相談</Button>
           </Link>
-          <Link href={reservationLinks.square} target="_blank" rel="noopener noreferrer">
+          <Link href={reservationLinks.square}>
             <Button className="w-full">予約</Button>
           </Link>
         </div>

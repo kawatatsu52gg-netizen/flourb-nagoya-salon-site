@@ -16,7 +16,7 @@ export function Closing() {
           <h2 className="mt-3 font-serif text-3xl leading-tight md:text-5xl">{closingCopy.heading}</h2>
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/90 md:text-base">{closingCopy.body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={reservationLinks.square} target="_blank" rel="noopener noreferrer">
+            <Link href={reservationLinks.square}>
               <Button size="lg" className="bg-white text-rose-700 hover:bg-rose-100">初回カウンセリングを予約する</Button>
             </Link>
             <Link href={reservationLinks.line} target="_blank" rel="noopener noreferrer">
