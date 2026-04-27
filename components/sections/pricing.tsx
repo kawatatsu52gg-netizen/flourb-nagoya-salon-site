@@ -28,7 +28,14 @@ export function Pricing() {
               )}
               <h3 className="font-serif text-xl">{plan.title}</h3>
               <p className="mt-2 text-3xl font-serif text-rose-700">{plan.price}</p>
-              <p className="mt-3 text-sm text-foreground/70">{plan.description}</p>
+              {"footnote" in plan && plan.footnote ? (
+                <>
+                  <p className="mt-3 text-sm text-neutral-700 leading-relaxed">{plan.description}</p>
+                  <p className="mt-2 text-xs text-neutral-500 leading-relaxed">{plan.footnote}</p>
+                </>
+              ) : (
+                <p className="mt-3 text-sm text-foreground/70">{plan.description}</p>
+              )}
             </article>
           );
         })}
