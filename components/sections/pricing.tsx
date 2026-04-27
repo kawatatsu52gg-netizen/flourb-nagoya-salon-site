@@ -49,7 +49,7 @@ export function Pricing() {
         </Link>
       </div>
       <section className="mt-20 rounded-3xl border border-rose-300/30 bg-rose-100/35 px-6 py-12 md:px-10 md:py-16">
-        <p className="text-xs tracking-[0.3em] text-gold-700">AI DIAGNOSIS</p>
+        <p className="text-xs tracking-[0.3em] text-gold-700">DIAGNOSIS</p>
         <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.6] tracking-wide md:text-5xl">
           あなたの状態、悩みに合わせた
           <br />
@@ -69,7 +69,7 @@ export function Pricing() {
             <p className="mb-3 text-sm tracking-widest text-gold-700">02</p>
             <p className="mb-2 font-medium">あなた専用の診断文</p>
             <p className="text-sm leading-relaxed text-foreground/65">
-              AIがあなたの回答を読み解き、一人ひとり違う言葉で結果をお伝えします。
+              あなたの回答を一つひとつ読み解き、一人ひとり違う言葉で結果をお伝えします。
             </p>
           </div>
           <div>
@@ -84,7 +84,7 @@ export function Pricing() {
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">
           <Link href="/diagnosis">
             <Button size="lg" className="w-full sm:w-auto">
-              無料AI診断をはじめる
+              無料診断をはじめる
             </Button>
           </Link>
           <Link href="#reserve">

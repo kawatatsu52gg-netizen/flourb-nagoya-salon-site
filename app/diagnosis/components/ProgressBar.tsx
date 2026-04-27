@@ -9,7 +9,7 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between text-xs tracking-[0.2em] text-rose-700">
-        <span>AI DIAGNOSIS</span>
+        <span>DIAGNOSIS</span>
         <span>
           {current}/{total}
         </span>

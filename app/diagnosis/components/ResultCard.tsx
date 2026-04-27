@@ -72,7 +72,7 @@ export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) 
   const template = resultTemplates[type];
   const isExternalMenu = "externalLink" in template.menu && template.menu.externalLink;
   const encodedText =
-    "Flourb名古屋のAI診断を試しました。10問で自分に合うケアの方向性が見えて、予約前の不安が減りました。";
+    "Flourb名古屋の診断を試しました。10問で自分に合うケアの方向性が見えて、予約前の不安が減りました。";
   const shareUrl = "https://flourb.com/diagnosis";
   const xShareHref = `https://x.com/intent/tweet?text=${encodeURIComponent(encodedText)}&url=${encodeURIComponent(shareUrl)}`;
   const lineShareHref = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}`;

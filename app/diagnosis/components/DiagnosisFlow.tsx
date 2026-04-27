@@ -142,7 +142,7 @@ export function DiagnosisFlow() {
             {isLoading ? (
               <div className="glass-card p-8 text-center">
                 <p className="text-sm tracking-[0.14em] text-rose-700">ANALYZING</p>
-                <p className="mt-3 font-serif text-2xl">AIがあなたの回答を読み解いています...</p>
+                <p className="mt-3 font-serif text-2xl">あなたの回答を一つひとつ読み解いています...</p>
               </div>
             ) : (
               <div className="flex flex-wrap gap-3">
