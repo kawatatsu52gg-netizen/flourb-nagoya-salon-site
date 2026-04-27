@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     const typeLabels = {
       herb: "肌細胞リセット型（ハーブピーリング単独推奨）",
       kogao: "骨格リバランス型（小顔矯正単独推奨）",
-      both: "統合リジェネレーション型（ハーブピーリング×小顔セット推奨）",
+      both: "統合リジェネレーション型（ハーブピーリング×小顔調整推奨）",
       homecare: "ホームケアファースト型（RIMANスキンケア商品推奨）"
     };
 

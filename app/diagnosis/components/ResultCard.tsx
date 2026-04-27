@@ -39,7 +39,7 @@ export const resultTemplates = {
     icon: "✨",
     subtitle: "あなたに必要なのは、構造と細胞、両方からのアプローチです",
     menu: {
-      name: "ハーブピーリング × 小顔セット",
+      name: "ハーブピーリング × 小顔調整",
       price: "¥22,000",
       duration: "90分",
       description: "身体の土台と肌細胞に、同時に働きかける統合メニュー",

@@ -41,7 +41,7 @@ const localBusinessJsonLd = {
     },
     {
       "@type": "Service",
-      name: "ハーブピーリング × 小顔セット",
+      name: "ハーブピーリング × 小顔調整",
       offers: { "@type": "Offer", priceCurrency: "JPY", price: "22000" }
     }
   ]

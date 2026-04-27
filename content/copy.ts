@@ -140,7 +140,7 @@ export const pricingPlans = [
     badge: ""
   },
   {
-    title: "ハーブピーリング × 小顔セット",
+    title: "ハーブピーリング × 小顔調整",
     price: "¥22,000",
     description: "90分｜身体の土台と肌細胞に、同時に働きかける統合メニュー",
     badge: "最も選ばれています"
