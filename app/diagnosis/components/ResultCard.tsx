@@ -72,6 +72,7 @@ interface ResultCardProps {
 export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) {
   const template = resultTemplates[type];
   const isExternalMenu = "externalLink" in template.menu && template.menu.externalLink;
+  const showFirstTimeOffer = type !== "homecare";
   const recommendedMenu =
     type === "kogao" ? "small-face" : type === "herb" ? "herb-peeling" : "set";
   const encodedText =
@@ -117,7 +118,7 @@ export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) 
           </p>
         )}
         <p className="mt-3 text-sm leading-relaxed text-foreground/75">{template.menu.description}</p>
-        <FirstTimeOfferBox recommendedMenu={recommendedMenu} />
+        {showFirstTimeOffer && <FirstTimeOfferBox recommendedMenu={recommendedMenu} />}
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href={template.menu.bookingHref}
