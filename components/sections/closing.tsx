@@ -35,20 +35,20 @@ export function Closing() {
           <p className="text-xs tracking-[0.2em] text-rose-700">PROFILE</p>
           <div className="mt-5 grid gap-8 md:grid-cols-2">
             <article>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-rose-100/20">
-                <Image src={profileCopy.image} alt={profileCopy.imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+              <div className="relative h-[360px] overflow-hidden rounded-2xl bg-rose-100/20 md:h-[420px] lg:h-[520px]">
+                <Image src={profileCopy.image} alt={profileCopy.imageAlt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
-              <h3 className="mt-4 font-serif text-2xl font-medium tracking-[0.12em] text-gold-600 md:text-3xl">{profileCopy.nameEn}</h3>
+              <h3 className="mt-6 font-serif text-2xl font-medium tracking-[0.12em] text-gold-600 md:text-3xl">{profileCopy.nameEn}</h3>
               <p className="mt-1 text-sm text-foreground/55">{profileCopy.nameJa}</p>
               <p className="mt-2 text-sm font-medium text-foreground/70">{profileCopy.role}</p>
               <p className="mt-1 text-sm font-medium text-rose-800/90">{profileCopy.credential}</p>
               <p className="mt-5 whitespace-pre-line text-sm leading-[1.8] text-foreground/80">{profileCopy.bio}</p>
             </article>
             <article>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-rose-100/20">
-                <Image src={topTherapistCopy.image} alt={topTherapistCopy.imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+              <div className="relative h-[360px] overflow-hidden rounded-2xl bg-rose-100/20 md:h-[420px] lg:h-[520px]">
+                <Image src={topTherapistCopy.image} alt={topTherapistCopy.imageAlt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
-              <h3 className="mt-4 font-serif text-2xl font-medium tracking-[0.12em] text-gold-600 md:text-3xl">{topTherapistCopy.nameEn}</h3>
+              <h3 className="mt-6 font-serif text-2xl font-medium tracking-[0.12em] text-gold-600 md:text-3xl">{topTherapistCopy.nameEn}</h3>
               <p className="mt-1 text-sm text-foreground/55">{topTherapistCopy.nameJa}</p>
               <p className="mt-2 text-sm font-medium text-foreground/70">{topTherapistCopy.role}</p>
             </article>
