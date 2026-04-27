@@ -51,9 +51,9 @@ export function Pricing() {
       <section className="mt-20 rounded-3xl border border-rose-300/30 bg-rose-100/35 px-6 py-12 md:px-10 md:py-16">
         <p className="text-xs tracking-[0.3em] text-gold-700">AI DIAGNOSIS</p>
         <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.6] tracking-wide md:text-5xl">
-          あなたに必要なケアを、
+          あなたの状態、悩みに合わせた
           <br />
-          AIが一緒に探します。
+          アプローチを提案します。
         </h3>
         <p className="mt-8 max-w-3xl text-base leading-[2] text-foreground/75 md:text-lg">
           肌の状態、骨格の癖、ライフスタイル、そして「今いちばん変えたいこと」。10問の質問にお答えいただくと、ハーブピーリング・小顔矯正・ホームケアの中から、あなたにもっとも合う道筋をご提案します。
