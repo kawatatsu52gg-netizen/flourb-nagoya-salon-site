@@ -194,6 +194,8 @@ export const profileCopy = {
   nameEn: "TATSUYA KAWABE",
   nameJa: "川辺 達也",
   role: "Flourb 名古屋 代表",
+  image: "/staff/representative.png",
+  imageAlt: "Flourb名古屋 代表 川辺達也",
   credential: "医療系国家資格保有",
   bio: `東京・代官山に本店「LaTokyo」を構え、
 講師として小顔矯正・フェイスアプローチの指導実績多数。
@@ -205,6 +207,14 @@ export const profileCopy = {
 解剖学的根拠に踏み込んだ本質的な施術を、
 Flourbでお届けしています。`
 };
+
+export const topTherapistCopy = {
+  nameEn: "TOP THERAPIST",
+  nameJa: "名古屋店 店長",
+  role: "Flourb 名古屋 トップセラピスト",
+  image: "/staff/top-therapist-manager.png",
+  imageAlt: "Flourb名古屋店 店長 トップセラピスト"
+} as const;
 
 export const businessInfo = {
   name: "Flourb（フラーブ名古屋）",
