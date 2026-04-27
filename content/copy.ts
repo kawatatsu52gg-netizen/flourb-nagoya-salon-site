@@ -224,8 +224,10 @@ export const topTherapistCopy = {
   nameEn: "TOP THERAPIST",
   nameJa: "名古屋店 店長",
   role: "Flourb 名古屋 トップセラピスト",
+  bio: `ご指名・リピートで支持される、丁寧で説明の分かりやすい施術。
+一人ひとりに合わせた施術設計が、お客様から信頼を得ています。`,
   image: "/staff/top-therapist-manager.png",
-  imageAlt: "Flourb名古屋店 店長 トップセラピスト"
+  imageAlt: "Flourb名古屋 名古屋店店長 トップセラピスト"
 } as const;
 
 export const businessInfo = {

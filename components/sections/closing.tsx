@@ -51,6 +51,7 @@ export function Closing() {
               <h3 className="mt-6 font-serif text-2xl font-medium tracking-[0.12em] text-gold-600 md:text-3xl">{topTherapistCopy.nameEn}</h3>
               <p className="mt-1 text-sm text-foreground/55">{topTherapistCopy.nameJa}</p>
               <p className="mt-2 text-sm font-medium text-foreground/70">{topTherapistCopy.role}</p>
+              <p className="mt-5 whitespace-pre-line text-sm leading-[1.8] text-foreground/80">{topTherapistCopy.bio}</p>
             </article>
           </div>
         </div>
