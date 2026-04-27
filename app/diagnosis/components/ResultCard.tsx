@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { type DiagnosisType } from "@/app/diagnosis/lib/scoring";
+import { FirstTimeOfferBox } from "@/app/diagnosis/components/FirstTimeOfferBox";
 import { Button } from "@/components/ui/button";
 
 export const resultTemplates = {
@@ -71,6 +72,8 @@ interface ResultCardProps {
 export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) {
   const template = resultTemplates[type];
   const isExternalMenu = "externalLink" in template.menu && template.menu.externalLink;
+  const recommendedMenu =
+    type === "kogao" ? "small-face" : type === "herb" ? "herb-peeling" : "set";
   const encodedText =
     "Flourb名古屋の診断を試しました。10問で自分に合うケアの方向性が見えて、予約前の不安が減りました。";
   const shareUrl = "https://flourb.com/diagnosis";
@@ -114,6 +117,7 @@ export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) 
           </p>
         )}
         <p className="mt-3 text-sm leading-relaxed text-foreground/75">{template.menu.description}</p>
+        <FirstTimeOfferBox recommendedMenu={recommendedMenu} />
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href={template.menu.bookingHref}

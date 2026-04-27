@@ -154,6 +154,18 @@ export const pricingPlans = [
   }
 ];
 
+export const firstTimeOffer = {
+  badge: "✦ はじめての方へ",
+  title: "月5名限定 初回特別ご案内",
+  pricing: {
+    smallFace: { from: "¥12,000", to: "¥3,980" },
+    herbPeeling: { from: "¥13,500", to: "¥3,980" },
+    set: { to: "¥3,980", lead: "まずは単体メニューから" }
+  },
+  duration: "※カウンセリング込み 約90分",
+  setNote: "※小顔矯正 or ハーブピーリングの単体メニュー"
+} as const;
+
 export const faqItems = [
   {
     q: "痛みはありますか？",
