@@ -30,7 +30,6 @@ export default function ConfirmClient() {
   const serviceId = searchParams.get("serviceId") ?? "";
   const startAt = searchParams.get("startAt") ?? "";
   const teamMemberId = searchParams.get("teamMemberId") ?? "any";
-  const selectedTeamMemberName = searchParams.get("teamMemberName") ?? "指名なし（おまかせ）";
 
   const [services, setServices] = useState<Service[]>([]);
   const [submitting, setSubmitting] = useState(false);
@@ -87,8 +86,7 @@ export default function ConfirmClient() {
       const params = new URLSearchParams({
         bookingId: json.bookingId ?? "",
         startAt: json.startAt ?? startAt,
-        serviceName: service?.name ?? "",
-        teamMemberName: selectedTeamMemberName
+        serviceName: service?.name ?? ""
       });
       router.push(`/booking/complete?${params.toString()}`);
     } catch (e) {
@@ -114,7 +112,6 @@ export default function ConfirmClient() {
           <div className="rounded-xl bg-rose-50/50 p-4 text-sm text-foreground/80">
             <p>メニュー: {service?.name ?? "選択中..."}</p>
             <p className="mt-1">日時: {startAtLabel || "未選択"}</p>
-            <p className="mt-1">担当: {selectedTeamMemberName}</p>
           </div>
 
           <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>

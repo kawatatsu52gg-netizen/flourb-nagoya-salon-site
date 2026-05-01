@@ -9,7 +9,6 @@ export default function CompleteClient() {
   const params = useSearchParams();
   const bookingId = params.get("bookingId") ?? "-";
   const serviceName = params.get("serviceName") ?? "-";
-  const teamMemberName = params.get("teamMemberName") ?? "指名なし（おまかせ）";
   const startAt = params.get("startAt");
 
   const startAtLabel = startAt
@@ -30,7 +29,6 @@ export default function CompleteClient() {
             <p>予約番号: {bookingId}</p>
             <p className="mt-1">日時: {startAtLabel}</p>
             <p className="mt-1">メニュー: {serviceName}</p>
-            <p className="mt-1">担当: {teamMemberName}</p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

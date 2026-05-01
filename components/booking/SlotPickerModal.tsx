@@ -27,12 +27,12 @@ type AvailabilitySlot = {
 interface SlotPickerModalProps {
   open: boolean;
   serviceId: string;
-  teamMemberId: string;
   onClose: () => void;
-  onSelect: (payload: { startAt: string; teamMemberId: string; teamMemberName: string }) => void;
+  onSelect: (payload: { startAt: string; teamMemberId: string }) => void;
 }
 
-export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSelect }: SlotPickerModalProps) {
+export function SlotPickerModal({ open, serviceId, onClose, onSelect }: SlotPickerModalProps) {
+  const bookingStaffScope = "any";
   const [loading, setLoading] = useState(false);
   const [recommendations, setRecommendations] = useState<RecommendedDay[]>([]);
   const [allSlots, setAllSlots] = useState<AvailabilitySlot[]>([]);
@@ -44,7 +44,7 @@ export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSele
     setLoading(true);
     setError(null);
 
-    const url = `/api/recommended-slots?serviceId=${encodeURIComponent(serviceId)}&teamMemberId=${encodeURIComponent(teamMemberId)}`;
+    const url = `/api/recommended-slots?serviceId=${encodeURIComponent(serviceId)}&teamMemberId=${encodeURIComponent(bookingStaffScope)}`;
     fetch(url)
       .then(async (res) => {
         if (!res.ok) throw new Error("候補日の取得に失敗しました");
@@ -55,13 +55,13 @@ export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSele
       })
       .catch(() => setError("候補日の取得に失敗しました。時間をおいて再度お試しください。"))
       .finally(() => setLoading(false));
-  }, [open, serviceId, teamMemberId]);
+  }, [open, serviceId]);
 
   async function loadAllSlots() {
     setLoading(true);
     setError(null);
     try {
-      const url = `/api/availability?serviceId=${encodeURIComponent(serviceId)}&teamMemberId=${encodeURIComponent(teamMemberId)}&days=30`;
+      const url = `/api/availability?serviceId=${encodeURIComponent(serviceId)}&teamMemberId=${encodeURIComponent(bookingStaffScope)}&days=30`;
       const res = await fetch(url);
       if (!res.ok) throw new Error("all slots failed");
       const json = await res.json();
@@ -122,8 +122,7 @@ export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSele
                       onClick={() =>
                         onSelect({
                           startAt: day.morning!.startAt,
-                          teamMemberId: day.morning!.teamMemberId,
-                          teamMemberName: day.morning!.teamMemberName
+                          teamMemberId: day.morning!.teamMemberId
                         })
                       }
                     >
@@ -137,8 +136,7 @@ export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSele
                       onClick={() =>
                         onSelect({
                           startAt: day.afternoon!.startAt,
-                          teamMemberId: day.afternoon!.teamMemberId,
-                          teamMemberName: day.afternoon!.teamMemberName
+                          teamMemberId: day.afternoon!.teamMemberId
                         })
                       }
                     >
@@ -181,8 +179,7 @@ export function SlotPickerModal({ open, serviceId, teamMemberId, onClose, onSele
                         onClick={() =>
                           onSelect({
                             startAt: slot.startAt,
-                            teamMemberId: slot.teamMemberId,
-                            teamMemberName: slot.teamMemberName
+                            teamMemberId: slot.teamMemberId
                           })
                         }
                       >

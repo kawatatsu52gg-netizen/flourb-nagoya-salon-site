@@ -13,18 +13,19 @@ type Service = {
   priceYen: number;
 };
 
-type TeamMember = {
-  id: string;
-  displayName: string;
-  isBookable: boolean;
-};
+const FALLBACK_SERVICES: Service[] = [
+  {
+    id: "fallback-initial-kogao",
+    name: "月5名限定【初回3,980円】小顔矯正",
+    durationMinutes: 60,
+    priceYen: 3980
+  }
+];
 
 export default function BookingPage() {
   const router = useRouter();
   const [services, setServices] = useState<Service[]>([]);
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [serviceId, setServiceId] = useState("");
-  const [teamMemberId, setTeamMemberId] = useState("any");
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -36,9 +37,13 @@ export default function BookingPage() {
       try {
         const serviceRes = await fetch("/api/services");
         const serviceJson = await serviceRes.json();
-        const nextServices: Service[] = serviceJson.services ?? [];
-        setServices(nextServices);
-        if (nextServices.length > 0) setServiceId(nextServices[0].id);
+        const nextServices: Service[] = (serviceJson.services ?? []).filter((service: Service) => !!service.id);
+        const safeServices = nextServices.length > 0 ? nextServices : FALLBACK_SERVICES;
+        setServices(safeServices);
+        setServiceId(safeServices[0].id);
+      } catch {
+        setServices(FALLBACK_SERVICES);
+        setServiceId(FALLBACK_SERVICES[0].id);
       } finally {
         setLoading(false);
       }
@@ -46,21 +51,10 @@ export default function BookingPage() {
     void loadServices();
   }, []);
 
-  useEffect(() => {
-    if (!serviceId) return;
-    async function loadTeamMembers() {
-      const res = await fetch(`/api/team-members?serviceId=${encodeURIComponent(serviceId)}`);
-      const json = await res.json();
-      setTeamMembers(json.teamMembers ?? []);
-    }
-    void loadTeamMembers();
-  }, [serviceId]);
-
-  function handleSlotSelect(payload: { startAt: string; teamMemberId: string; teamMemberName: string }) {
+  function handleSlotSelect(payload: { startAt: string; teamMemberId: string }) {
     const params = new URLSearchParams({
       serviceId,
       teamMemberId: payload.teamMemberId,
-      teamMemberName: payload.teamMemberName,
       startAt: payload.startAt
     });
     setModalOpen(false);
@@ -107,32 +101,6 @@ export default function BookingPage() {
             )}
           </div>
 
-          <div className="rounded-2xl border border-rose-100 bg-rose-50/40 p-5">
-            <p className="text-sm tracking-[0.14em] text-rose-700">担当スタッフ</p>
-            <div className="mt-3 space-y-2">
-              <label className="flex cursor-pointer items-center gap-2 text-sm text-foreground/80">
-                <input
-                  type="radio"
-                  checked={teamMemberId === "any"}
-                  onChange={() => setTeamMemberId("any")}
-                  className="h-4 w-4 accent-rose-700"
-                />
-                指名なし（おまかせ）
-              </label>
-              {teamMembers.map((member) => (
-                <label key={member.id} className="flex cursor-pointer items-center gap-2 text-sm text-foreground/80">
-                  <input
-                    type="radio"
-                    checked={teamMemberId === member.id}
-                    onChange={() => setTeamMemberId(member.id)}
-                    className="h-4 w-4 accent-rose-700"
-                  />
-                  {member.displayName}
-                </label>
-              ))}
-            </div>
-          </div>
-
           <button
             type="button"
             className="w-full rounded-full bg-rose-700 px-6 py-3 text-sm font-medium text-white transition hover:bg-rose-800"
@@ -144,13 +112,7 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <SlotPickerModal
-        open={modalOpen}
-        serviceId={serviceId}
-        teamMemberId={teamMemberId}
-        onClose={() => setModalOpen(false)}
-        onSelect={handleSlotSelect}
-      />
+      <SlotPickerModal open={modalOpen} serviceId={serviceId} onClose={() => setModalOpen(false)} onSelect={handleSlotSelect} />
     </main>
   );
 }
