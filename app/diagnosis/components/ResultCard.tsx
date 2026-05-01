@@ -16,8 +16,7 @@ export const resultTemplates = {
       name: "ハーブピーリング",
       price: "¥13,500",
       duration: "60分",
-      description: "表皮から真皮層の深部まで届く、肌細胞アプローチ",
-      bookingHref: "/booking"
+      description: "表皮から真皮層の深部まで届く、肌細胞アプローチ"
     }
   },
   kogao: {
@@ -29,8 +28,7 @@ export const resultTemplates = {
       name: "小顔矯正",
       price: "¥12,000",
       duration: "60分",
-      description: "骨格・血流・筋肉の滞りへ、土台から整えるアプローチ",
-      bookingHref: "/booking"
+      description: "骨格・血流・筋肉の滞りへ、土台から整えるアプローチ"
     }
   },
   both: {
@@ -42,8 +40,7 @@ export const resultTemplates = {
       name: "ハーブピーリング × 小顔調整",
       price: "¥22,000",
       duration: "90分",
-      description: "身体の土台と肌細胞に、同時に働きかける統合メニュー",
-      bookingHref: "/booking"
+      description: "身体の土台と肌細胞に、同時に働きかける統合メニュー"
     },
     isRecommended: true
   },
@@ -68,6 +65,14 @@ interface ResultCardProps {
   personalMessage: string;
   reasons: string[];
 }
+
+/** 診断から予約へ：メニュー自動選択＋日程モーダルを直開き */
+function bookingSlotsHref(diagnosis: DiagnosisType) {
+  return `/booking?diagnosis=${diagnosis}&openSlots=1`;
+}
+
+/** カウンセリング優先の入り口（初回枠に寄せる） */
+const COUNSELING_BOOKING_HREF = "/booking?diagnosis=kogao&openSlots=1";
 
 export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) {
   const template = resultTemplates[type];
@@ -121,13 +126,13 @@ export function ResultCard({ type, personalMessage, reasons }: ResultCardProps) 
         {showFirstTimeOffer && <FirstTimeOfferBox recommendedMenu={recommendedMenu} />}
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href={template.menu.bookingHref}
+            href={isExternalMenu ? template.menu.bookingHref : bookingSlotsHref(type)}
             target={isExternalMenu ? "_blank" : undefined}
             rel={isExternalMenu ? "noopener noreferrer" : undefined}
           >
             <Button size="lg">{isExternalMenu ? "公式モールを見る" : "このメニューを予約する"}</Button>
           </Link>
-          <Link href="/booking">
+          <Link href={COUNSELING_BOOKING_HREF}>
             <Button size="lg" variant="secondary">
               まずカウンセリングで相談する
             </Button>

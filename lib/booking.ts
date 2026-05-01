@@ -148,3 +148,33 @@ export function prioritizePrimaryService(services: BookingService[]) {
     return a.name.localeCompare(b.name, "ja");
   });
 }
+
+/** 診断タイプに沿って Square カタログ上のバリエーションIDを推定する（名前に依存） */
+export type DiagnosisServiceHint = "herb" | "kogao" | "both";
+
+export function pickServiceIdForDiagnosis(services: BookingService[], hint: DiagnosisServiceHint): string | undefined {
+  if (services.length === 0) return undefined;
+
+  const hasHerb = (name: string) => /ハーブ|ピーリング/i.test(name);
+  const hasKogao = (name: string) => /小顔/i.test(name);
+  const isCombo = (name: string) => hasHerb(name) && hasKogao(name);
+
+  if (hint === "both") {
+    const combo = services.find((s) => isCombo(s.name));
+    if (combo) return combo.id;
+  }
+  if (hint === "herb") {
+    const single = services.find((s) => hasHerb(s.name) && !isCombo(s.name));
+    if (single) return single.id;
+    const anyHerb = services.find((s) => hasHerb(s.name));
+    if (anyHerb) return anyHerb.id;
+  }
+  if (hint === "kogao") {
+    const single = services.find((s) => hasKogao(s.name) && !isCombo(s.name));
+    if (single) return single.id;
+    const anyK = services.find((s) => hasKogao(s.name));
+    if (anyK) return anyK.id;
+  }
+
+  return services[0]?.id;
+}
