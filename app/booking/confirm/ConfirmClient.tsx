@@ -16,6 +16,7 @@ const schema = z.object({
     .string()
     .min(10, "電話番号を入力してください")
     .regex(/^[0-9+\-()\s]+$/, "電話番号の形式が不正です"),
+  lineId: z.string().min(1, "LINE IDを入力してください"),
   emailAddress: z.string().email("メールアドレス形式で入力してください"),
   note: z.string().optional(),
   agreed: z.boolean().refine((value) => value, "ポリシーへの同意が必要です")
@@ -41,6 +42,7 @@ export default function ConfirmClient() {
       familyName: "",
       givenName: "",
       phoneNumber: "",
+      lineId: "",
       emailAddress: "",
       note: ""
     }
@@ -75,6 +77,7 @@ export default function ConfirmClient() {
             familyName: values.familyName,
             givenName: values.givenName,
             phoneNumber: values.phoneNumber,
+            lineId: values.lineId,
             emailAddress: values.emailAddress,
             note: values.note
           }
@@ -138,6 +141,12 @@ export default function ConfirmClient() {
               メールアドレス
               <input className="mt-1 w-full rounded-xl border border-rose-200 px-3 py-2" {...form.register("emailAddress")} />
               <span className="mt-1 block text-xs text-rose-700">{form.formState.errors.emailAddress?.message}</span>
+            </label>
+
+            <label className="block text-sm">
+              LINE ID
+              <input className="mt-1 w-full rounded-xl border border-rose-200 px-3 py-2" {...form.register("lineId")} />
+              <span className="mt-1 block text-xs text-rose-700">{form.formState.errors.lineId?.message}</span>
             </label>
 
             <label className="block text-sm">

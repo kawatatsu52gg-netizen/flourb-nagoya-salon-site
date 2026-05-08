@@ -17,6 +17,7 @@ const bookingSchema = z.object({
     familyName: z.string().min(1),
     emailAddress: z.string().email(),
     phoneNumber: z.string().min(8),
+    lineId: z.string().min(1),
     note: z.string().optional()
   })
 });
@@ -81,6 +82,7 @@ export async function POST(req: Request) {
 
     const resolvedTeamMemberId = await resolveTeamMemberId(body.teamMemberId);
     const serviceVariationVersion = await resolveServiceVersion(body.serviceId);
+    const customerNote = [body.customer.note, `LINE ID: ${body.customer.lineId}`].filter(Boolean).join("\n");
 
     const booking = await square.bookings.create({
       idempotencyKey: randomUUID(),
@@ -88,7 +90,7 @@ export async function POST(req: Request) {
         startAt: body.startAt,
         locationId: SQUARE_LOCATION_ID,
         customerId,
-        customerNote: body.customer.note,
+          customerNote,
         appointmentSegments: [
           {
             serviceVariationId: body.serviceId,
