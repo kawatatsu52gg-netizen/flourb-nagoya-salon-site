@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
 import { ProgressBar } from "@/app/diagnosis/components/ProgressBar";
 import { QuestionCard } from "@/app/diagnosis/components/QuestionCard";
@@ -34,6 +35,7 @@ function buildFallbackResult(answers: Answers): DiagnosisResponse {
 }
 
 export function DiagnosisFlow() {
+  const router = useRouter();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -109,6 +111,15 @@ export function DiagnosisFlow() {
       setIsLoading(false);
     }
   }
+
+  function bookingHrefFromType(type: DiagnosisType) {
+    return `/booking?diagnosis=${type}&openSlots=1`;
+  }
+
+  useEffect(() => {
+    if (!result) return;
+    router.push(bookingHrefFromType(result.type));
+  }, [result, router]);
 
   return (
     <main className="min-h-screen bg-background py-14 md:py-20">
