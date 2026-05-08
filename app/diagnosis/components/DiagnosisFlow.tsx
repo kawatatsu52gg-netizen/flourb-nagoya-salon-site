@@ -118,7 +118,12 @@ export function DiagnosisFlow() {
 
   useEffect(() => {
     if (!result) return;
-    router.push(bookingHrefFromType(result.type));
+    const href = bookingHrefFromType(result.type);
+    router.push(href);
+    const fallbackTimer = window.setTimeout(() => {
+      window.location.assign(href);
+    }, 250);
+    return () => window.clearTimeout(fallbackTimer);
   }, [result, router]);
 
   return (
